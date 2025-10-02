@@ -142,37 +142,37 @@ export default function OwnAFractionPage(_props: IOwnAFractionPageProps) {
   return (
     <AnimatePresence mode="wait">
       <motion.div 
-        className="w-full h-screen overflow-hidden bg-primary-dark flex"
+        className="w-full min-h-screen bg-primary-dark flex flex-col lg:flex-row"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
       {/* Left Panel - Hero Section */}
-      <div className="w-1/2 h-full relative">
+      <div className="w-full lg:w-1/2 h-64 sm:h-80 lg:h-screen relative">
         <div 
           className="w-full h-full bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('${getBackgroundImage()}')` }}
         >
-          <div className="w-full h-full bg-black bg-opacity-30 flex flex-col justify-between items-start">
+          <div className="w-full h-full bg-black bg-opacity-30 flex flex-col justify-between items-start p-4 lg:p-0">
             {/* Top Content */}
-            <div className="flex flex-col items-center w-full">
+            <div className="flex flex-col items-center w-full lg:flex-1 lg:justify-center">
            
               {/* Logo Section - Positioned on top of "Ownership" */}
-              <div className="flex justify-center w-full mt-6 mb-32 relative">
-                <div className="relative w-25 h-25 z-10">
+              <div className="flex justify-center w-full mt-2 lg:mt-6 mb-8 lg:mb-32 relative">
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 lg:w-25 lg:h-25 z-10">
                   <img 
                     src="/assets/0c57653e-bb60-4f45-a578-90ac5ff82fd6.png" 
-                    className="w-20 h-20 absolute top-2.5 left-2.5"
+                    className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 absolute top-1 left-1 sm:top-2 sm:left-2 lg:top-2.5 lg:left-2.5"
                     alt="MrKadalai Logo"
                   />
-                  <div className="w-25 h-25 overflow-hidden absolute top-0 left-0">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-25 lg:h-25 overflow-hidden absolute top-0 left-0">
                     <div 
-                      className="absolute top-9 left-8 flex justify-start items-start w-9 h-9 bg-cover bg-center bg-no-repeat"
+                      className="absolute top-6 left-5 sm:top-7 sm:left-6 lg:top-9 lg:left-8 flex justify-start items-start w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 bg-cover bg-center bg-no-repeat"
                       style={{ backgroundImage: "url('/assets/90003755-6a21-4563-b0d9-0178d97f5afc.png')" }}
                     >
                       {/* Logo icon elements */}
-                      <div className="mt-8 ml-1 flex justify-center items-center w-1 h-1">
+                      <div className="mt-5 ml-0.5 sm:mt-6 sm:ml-1 lg:mt-8 lg:ml-1 flex justify-center items-center w-1 h-1">
                         <img 
                           src="/assets/c4b0bd36-1e9c-4ab7-9ac0-45d2037c3ad8.png" 
                           className="w-1 h-1"
@@ -185,22 +185,22 @@ export default function OwnAFractionPage(_props: IOwnAFractionPageProps) {
               </div>
               
               {/* Tagline */}
-              <div className="flex justify-center w-full mt-32">
-                <div className="font-satisfy text-4xl md:text-6xl text-primary-gold tracking-tight font-normal">
+              <div className="flex justify-center w-full mt-4 lg:mt-32">
+                <div className="font-satisfy text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-primary-gold tracking-tight font-normal text-center">
                   <span>Join the</span>
                 </div>
               </div>
 
               {/* Main Title */}
-              <div className="flex justify-center w-full mt-12">
-                <div className="font-ulm text-6xl md:text-8xl text-white tracking-tight font-extrabold">
+              <div className="flex justify-center w-full mt-4 lg:mt-12">
+                <div className="font-ulm text-3xl sm:text-4xl md:text-5xl lg:text-8xl text-white tracking-tight font-extrabold text-center">
                   <span>Ownership</span>
                 </div>
               </div>
             </div>
 
             {/* Navigation Bar - Bottom */}
-            <div className="flex justify-center w-full mb-8">
+            <div className="hidden lg:flex justify-center w-full mb-8">
               <NavigationBar />
             </div>
           </div>
@@ -208,22 +208,26 @@ export default function OwnAFractionPage(_props: IOwnAFractionPageProps) {
       </div>
 
       {/* Right Panel - Content */}
-      <div className="w-1/2 h-full bg-primary-dark flex flex-col p-8 overflow-y-auto">
+      <div className="w-full lg:w-1/2 min-h-screen lg:h-screen bg-primary-dark flex flex-col p-4 sm:p-6 lg:p-8 overflow-y-auto">
         <div className="max-w-2xl mx-auto w-full">
+          {/* Mobile Navigation */}
+          <div className="lg:hidden mb-6">
+            <NavigationBar />
+          </div>
 
           {/* Header */}
-          <div className="mb-8">
-            <h1 className="font-ulm text-4xl text-white font-medium mb-8 tracking-tight">
+          <div className="mb-6 lg:mb-8">
+            <h1 className="font-ulm text-2xl sm:text-3xl lg:text-4xl text-white font-medium mb-4 lg:mb-8 tracking-tight">
               Join the Ownership
             </h1>
-            <p className="font-ulm text-xl text-white font-normal leading-relaxed tracking-tight">
+            <p className="font-ulm text-base sm:text-lg lg:text-xl text-white font-normal leading-relaxed tracking-tight">
               Join the ownership of Mr. Kadalai and be part of a thriving food franchise with exciting growth opportunities!
             </p>
           </div>
 
           {/* Investment Plan Cards - Horizontal Scroll */}
-          <div className="mb-10">
-            <div className="flex overflow-x-auto gap-6 pb-4 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+          <div className="mb-6 lg:mb-10">
+            <div className="flex overflow-x-auto gap-4 lg:gap-6 pb-4 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
               {investmentPlans.map((plan) => (
                 <PlanCard 
                   key={plan.id} 
@@ -236,45 +240,45 @@ export default function OwnAFractionPage(_props: IOwnAFractionPageProps) {
 
           {/* Start Journey Button */}
           <button 
-            className="w-full h-24 rounded-2xl bg-primary-gold bg-opacity-90 hover:bg-opacity-100 transition-all duration-300 flex items-center justify-center mb-16"
+            className="w-full h-16 lg:h-24 rounded-2xl bg-primary-gold bg-opacity-90 hover:bg-opacity-100 transition-all duration-300 flex items-center justify-center mb-8 lg:mb-16"
             onClick={() => {
               // Navigate to Basic plan when Start Your Journey is clicked
               handlePlanSelection(investmentPlans[3]); // Basic plan is at index 3
             }}
           >
-            <span className="font-ulm text-4xl text-white font-bold tracking-tight">
+            <span className="font-ulm text-2xl lg:text-4xl text-white font-bold tracking-tight">
               Start Your Journey
             </span>
           </button>
 
           {/* Success Story Section */}
-          <div className="mb-10">
-            <h2 className="font-ulm text-4xl text-white font-medium mb-6 tracking-tight leading-tight">
+          <div className="mb-6 lg:mb-10">
+            <h2 className="font-ulm text-2xl sm:text-3xl lg:text-4xl text-white font-medium mb-4 lg:mb-6 tracking-tight leading-tight">
               A Milestone in Our Journey – Our First Successful Outlet at CIT Chennai!
             </h2>
-            <p className="font-ulm text-xl text-white font-normal leading-relaxed tracking-tight mb-8">
+            <p className="font-ulm text-base sm:text-lg lg:text-xl text-white font-normal leading-relaxed tracking-tight mb-6 lg:mb-8">
               We proudly launched our first CIT Chennai outlet, marking a key milestone in Mr. Kadalai's growth and successful investment model expansion.
             </p>
             
             {/* Success Story Images */}
-            <div className="space-y-6">
+            <div className="space-y-4 lg:space-y-6">
               <div className="w-full">
                 <img 
                   src="/assets/3f6beb62-9008-426c-b3f0-180cf0748da2.png" 
                   alt="CIT Chennai Outlet" 
-                  className="w-full h-64 object-cover rounded-2xl"
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover rounded-2xl"
                 />
               </div>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
                 <img 
                   src="/assets/6d4939bc-d996-4fa4-9990-f69c10085822.png" 
                   alt="Success Story 1" 
-                  className="w-full h-32 object-cover rounded-2xl"
+                  className="w-full h-24 sm:h-28 lg:h-32 object-cover rounded-2xl"
                 />
                 <img 
                   src="/assets/783e3374-9497-49dd-bde4-54b4cb20fbd2.png" 
                   alt="Success Story 2" 
-                  className="w-full h-32 object-cover rounded-2xl"
+                  className="w-full h-24 sm:h-28 lg:h-32 object-cover rounded-2xl"
                 />
               </div>
             </div>
